@@ -1,10 +1,12 @@
 package com.justForPractice.JustForPractice
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +16,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var itemViewModel: ItemViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,25 +39,18 @@ class MainActivity : AppCompatActivity() {
         })
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            val itemT=Item(Title =  "Title",Description =  "Description",Data =  SimpleDateFormat("yyyy/MM/dd HH:mm").format(
-                Date()
-            ).toString())
-            itemViewModel.insert(itemT)
-            itemViewModel.insert(itemT)
-            itemViewModel.insert(itemT)
+            val intent= Intent(this ,AddEditItem::class.java)
+            startActivity(intent)
+
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
 
         when (item.itemId) {
             R.id.action_delete ->{
@@ -68,4 +64,6 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
 }

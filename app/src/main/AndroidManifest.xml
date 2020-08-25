@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppDark">
+        android:theme="@style/AppDark.NoActionBar">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -19,6 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddEditItem"
+            android:theme="@style/AppDark.NoActionBar"/>
     </application>
 
 </manifest>

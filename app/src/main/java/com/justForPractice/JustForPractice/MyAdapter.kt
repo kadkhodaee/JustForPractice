@@ -1,6 +1,7 @@
 package com.justForPractice.JustForPractice
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,9 +29,11 @@ class MyAdapter internal constructor(val context: Context,val itemViewModel: Ite
         holder.itemView.txvDescription.text = item.Description
         holder.itemView.txvDate.text = item.Data
         holder.itemView.setOnClickListener {
-            itemViewModel.delete(item)
+            //itemViewModel.delete(item)
+            val intent= Intent(context ,AddEditItem::class.java)
+            intent.putExtra("PXtoEditMode",(1).toLong())
+            context.startActivity(intent)
             notifyDataSetChanged()
-
         }
 
     }
