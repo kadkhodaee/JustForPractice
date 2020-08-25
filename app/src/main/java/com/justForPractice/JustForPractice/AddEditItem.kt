@@ -14,6 +14,8 @@ import java.util.*
 
 class AddEditItem : AppCompatActivity() {
     private lateinit var itemViewModel: ItemViewModel
+    private var IdMode: Long = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_edit_item)
@@ -21,22 +23,21 @@ class AddEditItem : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
 
-        val id=intent.getLongExtra("PXtoEditMode",-1)
-        itemViewModel= ViewModelProvider(this).get(ItemViewModel::class.java)
+        IdMode = intent.getLongExtra("PXtoEditModeID", -1)
+        itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
 
-        if (id==(-1).toLong()){
-            title="Add New"
+
+
+        if (IdMode == (-1).toLong()) {
+            title = "Add New"
             txvDate.text = SimpleDateFormat("yyyy/MM/dd HH:mm").format(Date()).toString()
-        }else{
-            title="Edit Item"
+        } else {
+            title = "Edit Item"
+            txvEditTitle.setText(intent.getStringExtra("PXtoEditModeTI"))
+            txvEditDescription.setText(intent.getStringExtra("PXtoEditModeDE"))
+            txvDate.text =intent.getStringExtra("PXtoEditModeDA")
         }
-
-
-
-
-
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.add_edit_menu, menu)
         return true
@@ -51,9 +52,25 @@ class AddEditItem : AppCompatActivity() {
                         .show()
                     return false
                 }
-                val itemT =Item(Title = txvEditTitle.text.toString(),Description = txvEditDescription.text.toString(),Data =  txvDate.text.toString())
-                itemViewModel.insert(itemT)
-                finish()
+                if (IdMode == (-1).toLong()) {
+                    val itemT = Item(
+                        Title = txvEditTitle.text.toString(),
+                        Description = txvEditDescription.text.toString(),
+                        Data = txvDate.text.toString()
+                    )
+                    itemViewModel.insert(itemT)
+                    finish()
+                } else {
+                    val itemT = Item(
+                        IdMode,
+                        Title = txvEditTitle.text.toString(),
+                        Description = txvEditDescription.text.toString(),
+                        Data = txvDate.text.toString()
+                    )
+                    itemViewModel.update(itemT)
+                    finish()
+                }
+
             }
             android.R.id.home -> {
                 finish()

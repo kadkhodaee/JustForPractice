@@ -6,16 +6,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var itemViewModel: ItemViewModel
+    private var allitem = emptyList<Item>()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,11 +34,33 @@ class MainActivity : AppCompatActivity() {
         val adapter=MyAdapter(this,itemViewModel)
         recyclerView.adapter=adapter
 
-
-
         itemViewModel.allitems.observe(this, Observer { items ->
-            items?.let { adapter.setItems(it) }
+            items?.let {
+                adapter.setItems(it)
+                allitem=it
+            }
         })
+
+        val myTHP= object: ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    val sourceposition=viewHolder.adapterPosition
+                    itemViewModel.delete(allitem[sourceposition])
+                }
+
+            }
+
+        val itemTouchHelper=ItemTouchHelper(myTHP)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
+
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
             val intent= Intent(this ,AddEditItem::class.java)
@@ -64,6 +88,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
 
 }
