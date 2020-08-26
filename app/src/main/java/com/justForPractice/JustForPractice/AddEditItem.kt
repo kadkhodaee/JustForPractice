@@ -56,7 +56,7 @@ class AddEditItem : AppCompatActivity() {
                     val itemT = Item(
                         Title = txvEditTitle.text.toString(),
                         Description = txvEditDescription.text.toString(),
-                        Data = txvDate.text.toString()
+                        Date = Date()
                     )
                     itemViewModel.insert(itemT)
                     finish()
@@ -65,7 +65,7 @@ class AddEditItem : AppCompatActivity() {
                         IdMode,
                         Title = txvEditTitle.text.toString(),
                         Description = txvEditDescription.text.toString(),
-                        Data = txvDate.text.toString()
+                        Date = Date()
                     )
                     itemViewModel.update(itemT)
                     finish()

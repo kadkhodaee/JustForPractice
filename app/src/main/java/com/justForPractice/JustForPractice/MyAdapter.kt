@@ -27,13 +27,13 @@ class MyAdapter internal constructor(val context: Context,val itemViewModel: Ite
         val item = items[position]
         holder.itemView.txvTitle.text = item.Title
         holder.itemView.txvDescription.text = item.Description
-        holder.itemView.txvDate.text = item.Data
+        holder.itemView.txvDate.text = item.Date.toString()
         holder.itemView.setOnClickListener {
             val intent= Intent(context ,AddEditItem::class.java)
             intent.putExtra("PXtoEditModeID",item.id)
             intent.putExtra("PXtoEditModeTI",item.Title)
             intent.putExtra("PXtoEditModeDE",item.Description)
-            intent.putExtra("PXtoEditModeDA",item.Data)
+            intent.putExtra("PXtoEditModeDA",item.Date.toString())
             context.startActivity(intent)
             notifyDataSetChanged()
         }

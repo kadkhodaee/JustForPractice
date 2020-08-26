@@ -7,7 +7,7 @@ import androidx.room.*
 @Dao
 interface ItemDao {
 
-    @Query("SELECT * from MyItems ")
+    @Query("SELECT * from MyItems ORDER BY Date ")
     fun getAll() : LiveData<List<Item>>
 
 
