@@ -33,10 +33,10 @@ class AddEditItem : AppCompatActivity() {
 
 
         if (idItemSetMode == (-1).toLong()) {
-            title = R.string.AddNew.toString()
+            title = getString(R.string.AddNew)
             txvDate.text = SimpleDateFormat("yyyy/MM/dd HH:mm",Locale.getDefault()).format(Date()).toString()
         } else {
-            title = R.string.EditItem.toString()
+            title = getString(R.string.EditItem)
             txvEditTitle.setText(intent.getStringExtra(EXTRA_TITLE))
             txvEditDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION))
             txvDate.text =intent.getStringExtra(EXTRA_DATE)
@@ -52,7 +52,7 @@ class AddEditItem : AppCompatActivity() {
         when (item.itemId) {
             R.id.save_item -> {
                 if (txvEditTitle.text.isEmpty() || txvEditDescription.text.isEmpty()) {
-                    Toast.makeText(this, R.string.eTDisEmpty.toString(), Toast.LENGTH_SHORT)
+                    Toast.makeText(this,getString( R.string.eTDisEmpty), Toast.LENGTH_SHORT)
                         .show()
                     return false
                 }
