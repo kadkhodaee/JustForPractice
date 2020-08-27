@@ -11,6 +11,7 @@
         android:theme="@style/AppDark.NoActionBar">
         <activity
             android:name=".MainActivity"
+            android:configChanges="uiMode"
             android:label="@string/app_name"
             android:theme="@style/AppDark.NoActionBar">
             <intent-filter>
@@ -20,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddEditItem"
+            android:configChanges="uiMode"
             android:theme="@style/AppDark.NoActionBar"/>
     </application>
 

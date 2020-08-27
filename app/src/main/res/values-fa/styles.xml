@@ -13,12 +13,11 @@
     </style>
 
     <!--My Dark theme-->
-    <style name="AppDark" parent="Theme.AppCompat">
+    <style name="AppDark" parent="Theme.AppCompat.DayNight">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimaryAppDark</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDarkAppDark</item>
-        <item name="colorAccent">@color/colorAccentAppDark</item>
-        <item name="recyclerViewStyle">@style/AppDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/navigationBarColorAppDark</item>
     </style>
 
