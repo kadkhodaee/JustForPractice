@@ -13,7 +13,7 @@
     </style>
 
     <!--My Dark theme-->
-    <style name="AppDark" parent="Theme.AppCompat.DayNight">
+    <style name="AppDark" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimaryAppDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkAppDark</item>
