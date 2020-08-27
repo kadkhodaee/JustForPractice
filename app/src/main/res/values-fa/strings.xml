@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">فقظ برای تمرین</string>
+
+
+
+    <string name="TitleItem" >عنوان</string>
+    <string name="DescriptionItem">شرح</string>
+    <string name="DateItem">تریخ</string>
+    <string name="SaveItem">ذخیره</string>
+    <string name="DeleteAllItem">حدف همه</string>
+</resources>

@@ -7,6 +7,10 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.justForPractice.JustForPractice.MyAdapter.Companion.EXTRA_DATE
+import com.justForPractice.JustForPractice.MyAdapter.Companion.EXTRA_DESCRIPTION
+import com.justForPractice.JustForPractice.MyAdapter.Companion.EXTRA_ID
+import com.justForPractice.JustForPractice.MyAdapter.Companion.EXTRA_TITLE
 import kotlinx.android.synthetic.main.add_edit_item.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -14,7 +18,7 @@ import java.util.*
 
 class AddEditItem : AppCompatActivity() {
     private lateinit var itemViewModel: ItemViewModel
-    private var IdMode: Long = -1
+    private var idItemSetMode: Long = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,19 +27,19 @@ class AddEditItem : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
 
-        IdMode = intent.getLongExtra("PXtoEditModeID", -1)
+        idItemSetMode = intent.getLongExtra(EXTRA_ID, -1)
         itemViewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
 
 
 
-        if (IdMode == (-1).toLong()) {
+        if (idItemSetMode == (-1).toLong()) {
             title = "Add New"
-            txvDate.text = SimpleDateFormat("yyyy/MM/dd HH:mm").format(Date()).toString()
+            txvDate.text = SimpleDateFormat("yyyy/MM/dd HH:mm",Locale.getDefault()).format(Date()).toString()
         } else {
             title = "Edit Item"
-            txvEditTitle.setText(intent.getStringExtra("PXtoEditModeTI"))
-            txvEditDescription.setText(intent.getStringExtra("PXtoEditModeDE"))
-            txvDate.text =intent.getStringExtra("PXtoEditModeDA")
+            txvEditTitle.setText(intent.getStringExtra(EXTRA_TITLE))
+            txvEditDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION))
+            txvDate.text =intent.getStringExtra(EXTRA_DATE)
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -52,7 +56,7 @@ class AddEditItem : AppCompatActivity() {
                         .show()
                     return false
                 }
-                if (IdMode == (-1).toLong()) {
+                if (idItemSetMode == (-1).toLong()) {
                     val itemT = Item(
                         Title = txvEditTitle.text.toString(),
                         Description = txvEditDescription.text.toString(),
@@ -62,7 +66,7 @@ class AddEditItem : AppCompatActivity() {
                     finish()
                 } else {
                     val itemT = Item(
-                        IdMode,
+                        idItemSetMode,
                         Title = txvEditTitle.text.toString(),
                         Description = txvEditDescription.text.toString(),
                         Date = Date()

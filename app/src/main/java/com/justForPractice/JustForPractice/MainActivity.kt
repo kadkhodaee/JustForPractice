@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var itemViewModel: ItemViewModel
     private var allitem = emptyList<Item>()
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         itemViewModel= ViewModelProvider(this).get(ItemViewModel::class.java)
 
         recyclerView.layoutManager=layoutManger
-        val adapter=MyAdapter(this,itemViewModel)
+        val adapter=MyAdapter(this)
         recyclerView.adapter=adapter
 
         itemViewModel.allitems.observe(this, Observer { items ->
@@ -62,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
             val intent= Intent(this ,AddEditItem::class.java)
             startActivity(intent)
 

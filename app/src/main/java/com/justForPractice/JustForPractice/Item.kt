@@ -14,8 +14,8 @@ class Item(
     @TypeConverters(Converters::class) val Date: Date
 )
 
-public class Converters{
-    private val formatter = SimpleDateFormat("yyyy/MM/dd HH:mm")
+class Converters{
+    private val formatter = SimpleDateFormat("yyyy/MM/dd HH:mm",Locale.getDefault())
 
     @TypeConverter
     fun dateToTimestamp(value:String): Date? {
