@@ -52,7 +52,7 @@ class AddEditItem : AppCompatActivity() {
         when (item.itemId) {
             R.id.save_item -> {
                 if (txvEditTitle.text.isEmpty() || txvEditDescription.text.isEmpty()) {
-                    Toast.makeText(this, "Title or Description is empty!!", Toast.LENGTH_SHORT)
+                    Toast.makeText(this, R.string.eTDisEmpty.toString(), Toast.LENGTH_SHORT)
                         .show()
                     return false
                 }
@@ -80,7 +80,7 @@ class AddEditItem : AppCompatActivity() {
                 finish()
             }
             else -> {
-                Toast.makeText(this, "not saved!!", Toast.LENGTH_SHORT).show()
+                return false
             }
         }
         return when (item.itemId) {

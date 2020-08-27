@@ -10,4 +10,5 @@
     <string name="DeleteAllItem">حدف همه</string>
     <string name="AddNew">ایجاد</string>
     <string name="EditItem">تصحیح</string>
+    <string name="eTDisEmpty">عنوان و شرح را پر کنید!!</string>
 </resources>
