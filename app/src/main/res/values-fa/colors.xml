@@ -11,5 +11,5 @@
     <color name="colorPrimaryDarkAppDark">#515151</color>
     <color name="colorAccentAppDark">#4A4A4A</color>
 
-    <color name="navigationBarColorAppDark">#A8A7A7</color>
+    <color name="navigationBarColorAppDark">#515151</color>
 </resources>
