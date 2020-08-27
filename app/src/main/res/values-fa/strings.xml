@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">فقظ برای تمرین</string>
+    <string name="app_name">فقط برای تمرین</string>
 
 
 
@@ -8,4 +8,6 @@
     <string name="DateItem">تریخ</string>
     <string name="SaveItem">ذخیره</string>
     <string name="DeleteAllItem">حدف همه</string>
+    <string name="AddNew">ایجاد</string>
+    <string name="EditItem">تصحیح</string>
 </resources>

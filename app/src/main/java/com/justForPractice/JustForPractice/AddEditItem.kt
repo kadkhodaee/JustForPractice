@@ -33,10 +33,10 @@ class AddEditItem : AppCompatActivity() {
 
 
         if (idItemSetMode == (-1).toLong()) {
-            title = "Add New"
+            title = R.string.AddNew.toString()
             txvDate.text = SimpleDateFormat("yyyy/MM/dd HH:mm",Locale.getDefault()).format(Date()).toString()
         } else {
-            title = "Edit Item"
+            title = R.string.EditItem.toString()
             txvEditTitle.setText(intent.getStringExtra(EXTRA_TITLE))
             txvEditDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION))
             txvDate.text =intent.getStringExtra(EXTRA_DATE)

@@ -8,4 +8,6 @@
     <string name="DateItem">Date</string>
     <string name="SaveItem">Save</string>
     <string name="DeleteAllItem">Delete All</string>
+    <string name="AddNew">Add New</string>
+    <string name="EditItem">Edit Item</string>
 </resources>
