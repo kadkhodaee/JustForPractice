@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.justForPractice.JustForPractice.MyAdapter.Companion.EXTRA_DATE
 import com.justForPractice.JustForPractice.MyAdapter.Companion.EXTRA_DESCRIPTION
@@ -16,7 +15,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class AddEditItem : AppCompatActivity() {
+class AddEditItem :  MyActivity() {
     private lateinit var itemViewModel: ItemViewModel
     private var idItemSetMode: Long = -1
 

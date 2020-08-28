@@ -11,4 +11,5 @@
     <string name="AddNew">Add New</string>
     <string name="EditItem">Edit Item</string>
     <string name="eTDisEmpty">Title or Description is empty!!</string>
+    <string name="changeTheme">Change Theme</string>
 </resources>

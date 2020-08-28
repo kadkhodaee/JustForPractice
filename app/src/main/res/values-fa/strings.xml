@@ -11,4 +11,5 @@
     <string name="AddNew">ایجاد</string>
     <string name="EditItem">تصحیح</string>
     <string name="eTDisEmpty">عنوان و شرح را پر کنید!!</string>
+    <string name="changeTheme">تعویض تم</string>
 </resources>

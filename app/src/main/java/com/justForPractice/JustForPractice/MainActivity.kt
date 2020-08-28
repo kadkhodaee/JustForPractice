@@ -3,7 +3,6 @@ package com.justForPractice.JustForPractice
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.Observer
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : MyActivity() {
     private lateinit var itemViewModel: ItemViewModel
     private var allitem = emptyList<Item>()
 
@@ -77,6 +76,9 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.action_delete ->{
                 itemViewModel.deleteAll()
+            }
+            R.id.action_theme->{
+                changeTheme()
             }
             else ->{}
         }
