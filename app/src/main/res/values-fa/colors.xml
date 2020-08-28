@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#075497</color>
 
     <color name="fabBackGroundColorAppDark">#3E3D3D</color>
     <color name="fabBackGroundColor">#CAC9C9</color>
