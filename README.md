@@ -9,6 +9,5 @@ next step : work with api
 
 [Download release](https://github.com/HumanSarkhosh/JustForPractice/raw/master/release.apk)
 
-![demo image1](/justForPractice1.jpg)
+![demo gif1](/Screen_Recording_20210731-174604_justForPractice.gif)
 
-![demo image2](/justForPractice2.jpg)
